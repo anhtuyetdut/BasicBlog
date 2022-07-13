@@ -1,10 +1,12 @@
 var createError = require('http-errors');
 var express = require('express');
+var expressSession = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var postRouter = require("./routes/post_route");
 var userRouter = require("./routes/user_route");
+var fileUpload = require('express-fileupload');
 const methodOverride = require('method-override');
 
 var app = express();
@@ -18,6 +20,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressSession({secret: 'your secret', saveUninitialized: true, resave: false}));
+app.use(fileUpload());
 app.use(methodOverride('_method'));
 app.use(express.static('upload'));
 

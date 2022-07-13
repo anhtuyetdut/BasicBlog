@@ -13,14 +13,13 @@ exports.login = async(username, password) => {
         })
     })
 }
-exports.listUserByID = async(idUser) =>{
+exports.getUserByID = async(idUser) =>{
     return new Promise((hamOK, hamloi) =>{
         let sql = "SELECT * FROM user WHERE idUser = " + idUser;
         let query = db.query(sql, (err, result) =>{
             if (err) console.log(err);
             else{
-                data = result;
-                hamOK(data)
+                hamOK(result[0])
             }
         })
     })
@@ -31,14 +30,11 @@ exports.register = async(user) =>{
          console.log("Insert success");
     })
 }
-exports.updateUser = async(user) =>{
-    let checkUser = await exports.listUserByID(user.idUser);
-    if (checkuser == null){
-        let sql = "UPDATE user SET ?";
-        db.query(sql, user, (err, result) =>{
-            console.log("Update user success");
-        })
-    }
+exports.updateUser = async(user, idUser) =>{
+    let sql = "UPDATE user SET ? WHERE idUser = " + idUser;
+    db.query(sql, user, (err, result) =>{
+        console.log("Update user success");
+    })
 }
 exports.checkEmail = async(email) =>{
     return new Promise((hamOK, hamloi) =>{

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Site Metas -->
+    <title>Forest Time - Stylish Magazine Blog Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    
+    <!-- Design fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet"> 
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons core CSS -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../style.css" rel="stylesheet">
+
+    <!-- Responsive styles for this template -->
+    <link href="../css/responsive.css" rel="stylesheet">
+
+    <!-- Colors for this template -->
+    <link href="../css/colors.css" rel="stylesheet">
+
+    <!-- Version Garden CSS for this template -->
+    <link href="../css/version/garden.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <%- include('header') %>
+    <div class="page-title wb">
+        <div class="container">
+            <div class="form-group row">
+                <h2><i class="fa fa-leaf bg-green"></i> Category by: Status</h2>    
+                <form action="/post/create-new-post" method="GET" class="inline-block">
+                    <div>
+                        <button type="submit" class="btn btn-primary" style="margin-left: 650px;">Create new post</button>
+                    </div>
+                </form>       
+            </div><!-- end row -->
+            <form action="/post/your-post-status" method="POST" class="d-inline">
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <select name="status" id="status" class="form-control">
+                            <option value="All">All</option>
+                            <option value="Draft">Draft</option>
+                            <option value="Public">Public</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Select</button>
+                    </div>
+                </div>
+            </form>
+        </div><!-- end container -->
+    </div><!-- end page-title -->
+
+        <section class="section wb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-list clearfix">
+                                <%for (item of listPost){%>
+                                <div class="blog-box row">
+                                    <div class="col-md-4">
+                                        <div class="post-media">
+                                            <a href="/post/detail<%=item.idPost%>" title="">
+                                                <img src="../<%=item.avatar%>" alt="" class="img-fluid">
+                                                <div class="hovereffect"></div>
+                                            </a>
+                                        </div><!-- end media -->
+                                    </div><!-- end col -->
+
+                                    <div class="blog-meta big-meta col-md-8">
+                                        <span class="bg-aqua"><a href="" title=""><%=item.name%></a></span>
+                                        <span class="bg-aqua"><a href="/post/edit-post<%=item.idPost%>" title="">Edit</a></span>
+                                        <span class="bg-aqua"><a href="/post/delete-post<%=item.idPost%>" mtitle="">Delete</a></span>
+                                        <h4><a href="/post/detail<%=item.idPost%>" title=""><%=item.title%></a></h4>
+                                        <p><%=item.description%></p>
+                                        <small><a href="garden-single.html" title="">11 July, 2017</a></small>
+                                        <small><a href="#" title="">by <%=item.email%></a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end blog-box -->
+                                </form>
+
+                                <hr class="invis">
+                                <%}%>
+                            </div><!-- end blog-list -->
+                        </div><!-- end page-wrapper -->
+
+                        <hr class="invis">
+                    </div><!-- end col -->
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+                            <div class="widget">
+                                <h2 class="widget-title">Search</h2>
+                                <form class="form-inline search-form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search on the site">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div><!-- end widget -->
+                        </div><!-- end sidebar -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <br>
+                        <div class="copyright">&copy; Forest Time. Design: <a href="http://html.design">HTML Design</a>.</div>
+                    </div>
+                </div>
+            </div><!-- end container -->
+        </footer><!-- end footer -->
+
+        <div class="dmtop">Scroll to Top</div>
+        
+    </div><!-- end wrapper -->
+
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/tether.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/custom.js"></script>
+
+</body>
+</html>
