@@ -3,7 +3,7 @@ var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'BasicBlog'
+    database: 'basic_blog'
 })
 
 db.connect(function (err) {

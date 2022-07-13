@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var postRouter = require("./routes/post_route");
+var userRouter = require("./routes/user_route");
 const methodOverride = require('method-override');
 
 var app = express();
@@ -20,6 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(express.static('upload'));
 
+app.use('/post', postRouter);
+app.use('/user', userRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
