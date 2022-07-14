@@ -1,5 +1,6 @@
 # BasicBlog
 ## BasicBlog có các chức năng cơ bản
+Sử dụng Nodejs Express, Rest API và MySQL
 Muốn đăng nhập: http://localhost:3000/user/login
 Muốn vào trang chủ: http://localhost:3000/post/trang-chu
 #### *Login - Đăng nhập
